@@ -1,4 +1,4 @@
-Problem Overview:
+**Problem Overview:**
 
 In the telecom industry, customers are able to choose from multiple service providers and actively switch from one operator to another. In this highly competitive market, the telecommunications industry experiences an average of 15-25% annual churn rate. Given the fact that it costs 5-10 times more to acquire a new customer than to retain an existing one, customer retention has now become even more important than customer acquisition.
 
@@ -8,7 +8,7 @@ To reduce customer churn, telecom companies need to predict which customers are 
 
 In this project, we will analyse customer-level data of a leading telecom firm, build predictive models to identify customers at high risk of churn and identify the main indicators of churn.
 
-Understanding and Defining Churn:
+**Understanding and Defining Churn:**
 
 There are two main models of payment in the telecom industry - postpaid (customers pay a monthly/annual bill after using the services) and prepaid (customers pay/recharge with a certain amount in advance and then use the services).
 
@@ -22,7 +22,7 @@ This project is based on the Indian and Southeast Asian market.
 
 Definitions of Churn:
 
-There are various ways to define churn, such as:
+**There are various ways to define churn, such as:**
 
 Revenue-based churn: Customers who have not utilised any revenue-generating facilities such as mobile internet, outgoing calls, SMS etc. over a given period of time. One could also use aggregate metrics such as ‘customers who have generated less than INR 4 per month in total/average/median revenue’.
 
@@ -34,33 +34,34 @@ A potential shortcoming of this definition is that when the customer has stopped
 
 In this project, we will use the usage-based definition to define churn.
 
-High-value Churn:
+**High-value Churn:**
 
 In the Indian and the southeast Asian market, approximately 80% of revenue comes from the top 20% customers (called high-value customers). Thus, if we can reduce churn of the high-value customers, we will be able to reduce significant revenue leakage.
 
 In this project, we will define high-value customers based on a certain metric (mentioned later below) and predict churn only on high-value customers.
 
-Understanding the Business Objective and the Data:
+**Understanding the Business Objective and the Data:**
 
 The dataset contains customer-level information for a span of four consecutive months - June, July, August and September. The months are encoded as 6, 7, 8 and 9, respectively.
 
 The business objective is to predict the churn in the last (i.e. the ninth) month using the data (features) from the first three months. To do this task well, understanding the typical customer behaviour during churn will be helpful.
 
-Understanding Customer Behaviour During Churn:
+**Understanding Customer Behaviour During Churn:**
 
 Customers usually do not decide to switch to another competitor instantly, but rather over a period of time (this is especially applicable to high-value customers). In churn prediction, we assume that there are three phases of customer lifecycle :
 
-The ‘good’ phase: In this phase, the customer is happy with the service and behaves as usual.
+**The ‘good’ phase:**
+In this phase, the customer is happy with the service and behaves as usual.
 
-The ‘action’ phase: 
+**The ‘action’ phase: **
 The customer experience starts to sore in this phase, for e.g. he/she gets a compelling offer from a competitor, faces unjust charges, becomes unhappy with service quality etc. In this phase, the customer usually shows different behaviour than the ‘good’ months. Also, it is crucial to identify high-churn-risk customers in this phase, since some corrective actions can be taken at this point (such as matching the competitor’s offer/improving the service quality etc.)
 
-The ‘churn’ phase: 
+**The ‘churn’ phase: **
 In this phase, the customer is said to have churned. We define churn based on this phase. Also, it is important to note that at the time of prediction (i.e. the action months), this data is not available to us for prediction. Thus, after tagging churn as 1/0 based on this phase, we discard all data corresponding to this phase.
 
 In this case, since we are working over a four-month window, the first two months are the ‘good’ phase, the third month is the ‘action’ phase, while the fourth month is the ‘churn’ phase.
 
-Dataset and Data Dictionary:
+**Dataset and Data Dictionary:**
 
 The dataset can be downloaded from here.
 
@@ -68,7 +69,7 @@ Data dictionary is uploaded. The data dictionary contains meanings of abbreviati
 
 The attributes containing 6, 7, 8, 9 as suffixes imply that those correspond to the months 6, 7, 8, 9 respectively.
 
-Data Preparation:
+**Data Preparation:**
 
 The following data preparation steps are crucial for this problem:
 
@@ -85,7 +86,7 @@ vol_3g_mb_9
 
 After tagging churners, we need to remove all the attributes corresponding to the churn phase (all attributes having ‘ _9’, etc. in their names).
 
-Modelling:
+**Modelling:**
 
 Build models to predict churn. The predictive model that we are going to build will serve two purposes:
 
@@ -97,7 +98,7 @@ In some cases, both of the above-stated goals can be achieved by a single machin
 
 Also, since the rate of churn is typically low (about 5-10%, this is called class-imbalance) - we will try using techniques to handle class imbalance.
 
-We can take the following suggestive steps to build the model:
+**We can take the following suggestive steps to build the model:**
 
 Preprocess data (convert columns to appropriate formats, handle missing values, etc.)
 Conduct appropriate exploratory analysis to extract useful insights (whether directly useful for business or for eventual modelling/feature engineering).
